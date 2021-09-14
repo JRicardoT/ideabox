@@ -1,0 +1,98 @@
+/* global rules
+
+font-family: 'Open Sans', Bold
+
+blue - #1f1f3d;
+wistful - #A9AAD2;
+lavander - #EAEAF4;
+white - #ffffff;
+lavender for comments - #E9E9F3;
+dark moderate blue - #5356A4;
+
+*/
+body {
+  display: flex;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.side-bar {
+  background-color: #1f1f3d;
+  width: 15em;
+  height: 85em;
+}
+
+h1 {
+  color: #e9e9f3;
+  padding-left:10px;
+}
+
+h3 {
+  color: #BFBFDD;
+}
+
+.starred-ideas {
+  background-color: #5356a4;
+  color: #e9e9f3;
+  margin: 8px 0 0 6px;
+  padding: .5em 1.5em;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.user-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30em;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #A9AAD2;
+}
+
+.title-container,
+.body-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  color: #1f1f3d;
+  margin-top: 1em;
+}
+.save-button {
+  background-color: #353667;
+  color: #ffffff;
+  width: 30em;
+  height: 3.5em;
+  margin-top: 2em;
+  border: none;
+}
+
+.title-input,
+.body-input {
+  height: 3.5em;
+  width: 30em;
+  border-radius: 4px;
+  border: 2px solid #5356a4;
+}
+
+.search-box {
+  display: flex;
+  margin-top: 2em;
+  border: 1px solid #5356a4;
+  border-radius: 4px;
+}
+
+.search-icon {
+  height: 1em;
+  width: 2em;
+  background-color: #353667;
+  padding: 1em;
+
+}
+
+.search-input {
+  width: 25.5em;
+  border-radius: 4px;
+}
