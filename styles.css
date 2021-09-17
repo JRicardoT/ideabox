@@ -8,7 +8,6 @@ lavander - #EAEAF4;
 white - #ffffff;
 lavender for comments - #E9E9F3;
 dark moderate blue - #5356A4;
-
 */
 /* * {
     border: 2px solid red;
@@ -99,7 +98,12 @@ label {
   height: 2.5em;
   margin-top: 1.5em;
   border: none;
+  cursor: pointer;
 }
+/* 
+.save-button:hover {
+  background-color: red;
+} */
 
 .title-input {
   height: 3.5em;
@@ -198,4 +202,9 @@ label {
   font-weight: lighter;
   color: #1f1f3d;
   font-size: 22px;
+}
+
+.disabled {
+  background-color: #EAEAF4;
+  cursor: default;
 }

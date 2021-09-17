@@ -1,44 +1,21 @@
-
-
-// As a user,
-// When I click “Save”,
-  //create querySelector and eventListener for .save-button.
-
-// If I entered information in both the “Title” and “Body” input fields,
-    // create querySelector for the title input and body input
-    // create conditional
-
-
-// I should see a new Idea instance with the provided title and body appear in the ideas array
-    // instantiate a new Class of idea with title and inputs.
-    // create functionality to push title and body inputs (value) into array
-        // create conditional
-
-// I should see a new idea card with the provided title and body appear on the DOM
-    // create functionality to display new instantiated idea.
-
-
-// When I click “Save”,
-  // If I entered information in both the “Title” and “Body” input fields,
-  // I should see the “Title” and “Body” input fields clear out
-      // value = ''
-
 //QuerySelectors
-var saveButton = document.querySelector('.save-button');
+var saveButton = document.getElementById('save-button');
 var titleInput = document.querySelector('#title');
 var bodyInput = document.querySelector('#body');
-
+var cardContainer = document.querySelector('.card-container');
+var form = document.querySelector('.user-input');
 var ideas = [];
 
 //EventListeners
 saveButton.addEventListener('click', createCard);
+form.addEventListener('keyup', checkInputFields);
 
 //Functions
-
 function createCard() {
   event.preventDefault();
   var newCard = new Idea(titleInput.value, bodyInput.value);
   ideas.push(newCard);
+  disableSaveButton();
   renderCard();
   clearInput();
 };
@@ -65,6 +42,24 @@ function renderCard() {
 };
 
 function clearInput() {
-  titleInput.value = null;
-  bodyInput.value = null;
+  titleInput.value = '';
+  bodyInput.value = '';
+};
+
+function checkInputFields() {
+  if (titleInput.value && bodyInput.value) {
+    enableSaveButton();
+  } else {
+    disableSaveButton();
+  }
+};
+
+function disableSaveButton() {
+  saveButton.disabled = true;
+  saveButton.classList.add('disabled');
+};
+
+function enableSaveButton() {
+  saveButton.disabled = false;
+    saveButton.classList.remove('disabled');
 };
