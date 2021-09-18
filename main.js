@@ -4,12 +4,13 @@ var titleInput = document.querySelector('#title');
 var bodyInput = document.querySelector('#body');
 var cardContainer = document.querySelector('.card-container');
 var form = document.querySelector('.user-input');
+
 var ideas = [];
 
 //EventListeners
 saveButton.addEventListener('click', createCard);
 form.addEventListener('keyup', checkInputFields);
-
+cardContainer.addEventListener('click', detectButton)
 //Functions
 function createCard() {
   event.preventDefault();
