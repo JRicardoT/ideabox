@@ -77,6 +77,28 @@ function favoriteCard() {
   }
 };
 
+function checkIfStarred(idea, target) {
+  if (idea.isStar) {
+    idea.isStar = false;
+    target.src = "./assets/star.svg";
+    target.alt = "white-star"
+  } else {
+    idea.isStar = true;
+    target.src = "./assets/star-active.svg"
+    target.alt = "red-star"
+  }
+};
+
+
+function detectButton() {
+  if (event.target.classList.contains('star-image')) {
+    favoriteCard();
+  } else if (event.target.classList.contains('delete-image')) {
+    deleteCard();
+  }
+};
+
+
 function disableSaveButton() {
   saveButton.disabled = true;
   saveButton.classList.add('disabled');
