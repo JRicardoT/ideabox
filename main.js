@@ -4,7 +4,6 @@ var titleInput = document.querySelector('#title');
 var bodyInput = document.querySelector('#body');
 var cardContainer = document.querySelector('.card-container');
 var form = document.querySelector('.user-input');
-
 var ideas = [];
 
 //EventListeners
@@ -22,9 +21,6 @@ function createCard() {
 };
 
 function renderCard(newCard) {
-  // console.log(newCard);
-  // cardContainer.innerHTML = '';
-  //   for (var i = 0; i < ideas.length; i++) {
       cardContainer.innerHTML += `
       <article class="card" id="${newCard.id}">
         <figure class="star-box">
@@ -78,12 +74,12 @@ function favoriteCard() {
 };
 
 function checkIfStarred(idea, target) {
-  if (idea.isStar) {
-    idea.isStar = false;
+  if (idea.isStarred) {
+    idea.isStarred = false;
     target.src = "./assets/star.svg";
     target.alt = "white-star"
   } else {
-    idea.isStar = true;
+    idea.isStarred = true;
     target.src = "./assets/star-active.svg"
     target.alt = "red-star"
   }
