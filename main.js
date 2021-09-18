@@ -67,6 +67,16 @@ function deleteCard() {
   target.remove();
 };
 
+function favoriteCard() {
+  var targetId = parseInt(event.target.parentNode.parentNode.id)
+  var target = event.target
+  for (var i = 0; i < ideas.length; i++) {
+    if (ideas[i].id === targetId) {
+      checkIfStarred(ideas[i], target)
+    }
+  }
+};
+
 function disableSaveButton() {
   saveButton.disabled = true;
   saveButton.classList.add('disabled');
