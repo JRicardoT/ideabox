@@ -57,6 +57,16 @@ function checkInputFields() {
   }
 };
 
+function deleteCard() {
+  var target = event.target.parentNode.parentNode;
+  for (var i = 0; i < ideas.length; i++) {
+    if (ideas[i].id === parseInt(target.id)) {
+      ideas.splice(i, 1)
+    }
+  }
+  target.remove();
+};
+
 function disableSaveButton() {
   saveButton.disabled = true;
   saveButton.classList.add('disabled');
