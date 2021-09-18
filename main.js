@@ -17,13 +17,14 @@ function createCard() {
   var newCard = new Idea(titleInput.value, bodyInput.value);
   ideas.push(newCard);
   disableSaveButton();
-  renderCard();
+  renderCard(newCard);
   clearInput();
 };
 
-function renderCard() {
-  cardContainer.innerHTML = '';
-    for (var i = 0; i < ideas.length; i++) {
+function renderCard(newCard) {
+  // console.log(newCard);
+  // cardContainer.innerHTML = '';
+  //   for (var i = 0; i < ideas.length; i++) {
       cardContainer.innerHTML += `
       <article class="card">
         <figure class="star-box">
