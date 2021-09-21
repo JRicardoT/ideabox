@@ -1,15 +1,15 @@
-//QuerySelectors
 var saveButton = document.getElementById('save-button');
 var titleInput = document.querySelector('#title');
 var bodyInput = document.querySelector('#body');
 var cardContainer = document.querySelector('.card-container');
 var form = document.querySelector('.user-input');
 var ideas = [];
-
 //EventListeners
-saveButton.addEventListener('click', createCard);
+//will run once document is fully loaded
+document.addEventListener("DOMContentLoaded", retrieveStoredIdeas)
+saveButton.addEventListener('click', createNewIdea);
 form.addEventListener('keyup', checkInputFields);
-cardContainer.addEventListener('click', detectButton)
+cardContainer.addEventListener('click', detectButton);
 //Functions
 function createCard() {
   event.preventDefault();
@@ -39,12 +39,10 @@ function renderCard(newCard) {
 
 
 };
-
 function clearInput() {
   titleInput.value = '';
   bodyInput.value = '';
 };
-
 function checkInputFields() {
   if (titleInput.value && bodyInput.value) {
     enableSaveButton();
@@ -72,7 +70,6 @@ function favoriteCard() {
     }
   }
 };
-
 function checkIfStarred(idea, target) {
   if (idea.isStarred) {
     idea.isStarred = false;
@@ -84,8 +81,6 @@ function checkIfStarred(idea, target) {
     target.alt = "red-star"
   }
 };
-
-
 function detectButton() {
   if (event.target.classList.contains('star-image')) {
     favoriteCard();
