@@ -18,4 +18,4 @@ class Idea {
   updateIdea() {
   }
 
-}
+};
