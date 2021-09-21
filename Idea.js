@@ -7,11 +7,15 @@ class Idea {
   }
 
   saveToStorage() {
+    var stringifyIdea = JSON.stringify(this);
+    localStorage.setItem(`${this.id}`, stringifyIdea);
   }
 
   deleteFromStorage() {
-  }
+    localStorage.removeItem(`${this.id}`);
 
+}
   updateIdea() {
   }
+
 }
