@@ -103,13 +103,16 @@ function detectButton() {
   }
 };
 
-
 function disableSaveButton() {
-  saveButton.disabled = true;
-  saveButton.classList.add('disabled');
+  if (titleInput.value === '' && bodyInput.value === '') {
+    saveButton.disabled = true;
+    saveButton.classList.add('disabled');
+  }
 };
 
 function enableSaveButton() {
-  saveButton.disabled = false;
+  if (titleInput.value !== '' && bodyInput.value !== '') {
+    saveButton.disabled = false;
     saveButton.classList.remove('disabled');
+  }
 };
