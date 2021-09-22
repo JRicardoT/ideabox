@@ -1,11 +1,11 @@
-var saveButton = document.getElementById('save-button');
+var saveButton = document.getElementById('saveButton');
 var titleInput = document.querySelector('#title');
 var bodyInput = document.querySelector('#body');
 var cardContainer = document.querySelector('.card-container');
 var form = document.querySelector('.user-input');
 var ideas = [];
 
-document.addEventListener("DOMContentLoaded", retrieveStoredIdeas)
+document.addEventListener("DOMContentLoaded", retrieveStoredIdeas);
 saveButton.addEventListener('click', createNewIdea);
 form.addEventListener('keyup', checkInputFields);
 cardContainer.addEventListener('click', detectButton);
@@ -16,16 +16,17 @@ function createNewIdea() {
   clearInput();
   disableSaveButton();
   ideas.push(newIdea);
-  newIdea.saveToStorage(ideas);
+  newIdea.saveToStorage();
   renderCards();
 };
 
   function retrieveStoredIdeas() {
   for (var i = 0; i < localStorage.length; i++) {
-    var ideaKey = localStorage.getItem(localStorage.key(i))
+    var ideaKey = localStorage.getItem(localStorage.key(i));
     var parsedIdea = JSON.parse(ideaKey);
     ideas.push(parsedIdea);
   }
+  renderCards();
 };
 
 function renderCards() {
@@ -66,7 +67,7 @@ function deleteCard() {
   var target = event.target.parentNode.parentNode;
   for (var i = 0; i < ideas.length; i++) {
     if (ideas[i].id === parseInt(target.id)) {
-      ideas[i].deleteFromStorage();
+      localStorage.removeItem(ideas[i].id);
       ideas.splice(i,1);
     }
   }
@@ -74,11 +75,11 @@ function deleteCard() {
 };
 
 function favoriteCard() {
-  var targetId = parseInt(event.target.parentNode.parentNode.id)
-  var target = event.target
+  var targetId = parseInt(event.target.parentNode.parentNode.id);
+  var target = event.target;
   for (var i = 0; i < ideas.length; i++) {
     if (ideas[i].id === targetId) {
-      checkIfStarred(ideas[i], target)
+      checkIfStarred(ideas[i], target);
     }
   }
 };
@@ -87,19 +88,19 @@ function checkIfStarred(idea, target) {
   if (idea.isStarred) {
     idea.isStarred = false;
     target.src = "./assets/star.svg";
-    target.alt = "white-star"
+    target.alt = "white-star";
   } else {
     idea.isStarred = true;
-    target.src = "./assets/star-active.svg"
-    target.alt = "red-star"
+    target.src = "./assets/star-active.svg";
+    target.alt = "red-star";
   }
 };
 
 function detectButton() {
   if (event.target.classList.contains('star-image')) {
-    favoriteCard();
+    favoriteCard()
   } else if (event.target.classList.contains('delete-image')) {
-    deleteCard();
+    deleteCard()
   }
 };
 
